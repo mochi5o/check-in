@@ -1,0 +1,51 @@
+[
+  {
+    "name": "spot-1",
+    "location": {
+      "lat": 33.974789,
+      "lng": 130.971279
+    }
+  },
+  {
+    "name": "kawatana-onsen",
+    "location": {
+      "lat": 34.144866,
+      "lng": 130.922527
+    }
+  },
+  {
+    "name": "shimonoseki-st",
+    "location": {
+      "lat": 33.952169,
+      "lng": 130.929393
+    }
+  },
+  {
+    "name": "karato",
+    "location": {
+      "lat": 33.955899,
+      "lng": 130.942499
+    }
+  },
+  {
+    "name": "spot-2",
+    "location": {
+      "lat": 34.019219,
+      "lng": 130.998058
+    }
+  },
+  {
+    "name": "spot-3",
+    "location": {
+      "lat": 34.005000,
+      "lng": 130.950310
+    }
+  },
+  {
+    "name": "spot-4",
+    "location": {
+      "lat": 33.983354,
+      "lng": 130.980180
+    }
+  }
+]

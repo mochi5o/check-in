@@ -1,7 +1,8 @@
-import React, { useCallback, useRef } from "react";
-import { GoogleMap, useLoadScript } from "@react-google-maps/api";
+import React, { useCallback, useRef, useState } from "react";
+import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api";
 
 import mapStyles from "./mapUtils/mapStyles.json";
+import locationData from "./mapUtils/locations.json"
 // import PlaceInfo from "./mapUtils/PlaceInfo";
 
 const libraries = ["places"];
@@ -14,6 +15,7 @@ const options = {
   disableDefaultUI: true,
   zoomControl: true,
 };
+
 export default function GoogleMapComponent() {
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_googleMapsApiKey,
@@ -28,18 +30,26 @@ export default function GoogleMapComponent() {
   if (loadError) return "Error";
   if (!isLoaded) return "Loading...";
 
+  const locations = locationData
+
   return (
-      <GoogleMap
-        id="map"
-        mapContainerStyle={mapContainerStyle}
-        zoom={11}
-        center={{
-          lat: 34.10,
-          lng: 131.28,
-        }}
-        options={options}
-        onLoad={onMapLoad}
-      >
-      </GoogleMap>
+    <GoogleMap
+      id="map"
+      mapContainerStyle={mapContainerStyle}
+      zoom={11}
+      center={{
+        lat: 34.046852,
+        lng: 130.999749
+      }}
+      options={options}
+      onLoad={onMapLoad}>
+        {
+          locations.map(item => {
+            return (
+            <Marker key={item.name} position={item.location} />
+            )
+          })
+        }
+    </GoogleMap>
   );
 }
