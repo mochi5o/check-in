@@ -1,10 +1,9 @@
 import React, { useCallback, useRef, useState } from "react";
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api";
-
+import Button from '@material-ui/core/Button';
 import mapStyles from "./mapUtils/mapStyles.json";
 import locationData from "./mapUtils/locations.json"
 // import PlaceInfo from "./mapUtils/PlaceInfo";
-
 const libraries = ["places"];
 const mapContainerStyle = {
   height: "60vh",
@@ -21,7 +20,7 @@ export default function GoogleMapComponent() {
     googleMapsApiKey: process.env.REACT_APP_googleMapsApiKey,
     libraries,
   });
-
+  const [selected, setSelected] = useState(null);
   const mapRef = useRef();
   const onMapLoad = useCallback((map) => {
     mapRef.current = map;
@@ -33,23 +32,56 @@ export default function GoogleMapComponent() {
   const locations = locationData
 
   return (
-    <GoogleMap
-      id="map"
-      mapContainerStyle={mapContainerStyle}
-      zoom={11}
-      center={{
-        lat: 34.046852,
-        lng: 130.999749
-      }}
-      options={options}
-      onLoad={onMapLoad}>
+    <>
+      <GoogleMap
+        id="map"
+        mapContainerStyle={mapContainerStyle}
+        zoom={12}
+        center={{
+          lat: 33.966808,
+          lng: 130.950513
+        }}
+        options={options}
+        onLoad={onMapLoad}>
         {
           locations.map(item => {
-            return (
-            <Marker key={item.name} position={item.location} />
+            return(
+              <Marker
+                key={item.name}
+                position={item.location}
+                onMouseOver={() => {
+                  setSelected(item);
+                }}
+                icon={{
+                  url: item.url,
+                  origin: new window.google.maps.Point(0, 0),
+                  anchor: new window.google.maps.Point(15, 15),
+                  scaledSize: new window.google.maps.Size(30, 30),
+                }}
+              />
             )
           })
         }
-    </GoogleMap>
+        {
+          selected ? (
+            // MarkerにマウスオーバーされたときにInfoWindowが表示されます。
+            <InfoWindow
+              position={{
+                lat: selected.location.lat,
+                lng: selected.location.lng,
+              }}
+              onCloseClick={() => {
+                setSelected(null);
+              }}
+            >
+              <div>{selected.info}</div>
+            </InfoWindow>
+          ) : null
+        }
+      </GoogleMap>
+      <Button variant="contained" color="default" size="large" href="check-in">
+        チェックインする
+      </Button>
+    </>
   );
 }
