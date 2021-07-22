@@ -1,9 +1,10 @@
 import './App.css';
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import GoogleMapComponent from './GoogleMapComponent';
-import CheckinComponent from './CheckinComponent'
-import { Container, Grid } from '@material-ui/core';
+import GoogleMapComponent from './components/GoogleMapComponent';
+import CheckinComponent from './components/CheckinComponent';
+// import { AuthProvider } from './contexts/auth';
+import { Grid } from '@material-ui/core';
 
 function App() {
   return (
@@ -17,8 +18,8 @@ function App() {
       >
         <h1>特産物スタンプラリー</h1>
         <Switch>
-          <Route exact path="/" component={GoogleMapComponent} />
-          <Route exact path="/check-in" component={CheckinComponent} />
+            <Route exact path="/" component={GoogleMapComponent} />
+            <Route exact path="/check-in" component={CheckinComponent} />
         </Switch>
       </Grid>
     </BrowserRouter>

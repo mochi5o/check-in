@@ -1,10 +1,10 @@
 import React, { useCallback, useRef, useState } from "react";
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api";
-import ListComponent from "./ListComponent";
+import Lists from "./Lists";
 import Button from '@material-ui/core/Button';
-import mapStyles from "./mapUtils/mapStyles.json";
-import locationData from "./mapUtils/locations.json"
-// import PlaceInfo from "./mapUtils/PlaceInfo";
+import mapStyles from "../mapUtils/mapStyles.json";
+import locationData from "../mapUtils/locations.json"
+
 const libraries = ["places"];
 const mapContainerStyle = {
   height: "60vh",
@@ -83,7 +83,7 @@ export default function GoogleMapComponent() {
       <Button variant="contained" color="default" size="large" href="check-in">
         チェックインする
       </Button>
-      <ListComponent />
+      <Lists />
     </>
   );
 }
