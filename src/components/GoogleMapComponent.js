@@ -48,7 +48,7 @@ export default function GoogleMapComponent() {
           locations.map(item => {
             return(
               <Marker
-                key={item.name}
+                key={item.id}
                 position={item.location}
                 onMouseOver={() => {
                   setSelected(item);
@@ -75,7 +75,7 @@ export default function GoogleMapComponent() {
                 setSelected(null);
               }}
             >
-              <div>{selected.info}</div>
+              <div>{selected.name}</div>
             </InfoWindow>
           ) : null
         }

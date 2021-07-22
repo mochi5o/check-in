@@ -1,64 +1,37 @@
 [
   {
     "id": "spot-1",
-    "location": {
-      "lat": 33.974789,
-      "lng": 130.971279
-    },
+
     "url": "https://www.buchiuma-y.net/chara/change_img/kurochan.gif",
     "name": "spot-1 ステーキハウス"
   },
   {
     "id": "spot-5",
-    "location": {
-      "lat": 34.024056,
-      "lng": 130.915837
-    },
     "url": "https://www.buchiuma-y.net/chara/change_img/ika.gif",
     "name": "spot-5 海鮮料理"
   },
   {
     "id": "shimonoseki-st",
-    "location": {
-      "lat": 33.952169,
-      "lng": 130.929393
-    },
     "url":"https://www.buchiuma-y.net/chara/change_img/anko.gif",
     "name": "下関 あんこう鍋"
   },
   {
     "id": "karato",
-    "location": {
-      "lat": 33.955899,
-      "lng": 130.942499
-    },
     "url": "https://www.buchiuma-y.net/chara/change_img/hugu.gif",
     "name": "唐戸市場 ふく"
   },
   {
     "id": "spot-2",
-    "location": {
-      "lat": 34.019219,
-      "lng": 130.998058
-    },
     "url": "https://www.buchiuma-y.net/chara/change_img/yone.gif",
     "name": "spot-2 おにぎり屋さん"
   },
   {
     "id": "spot-3",
-    "location": {
-      "lat": 34.005000,
-      "lng": 130.950310
-    },
     "url": "https://www.buchiuma-y.net/chara/change_img/ninjin.gif",
     "name": "spot-3 有機野菜レストラン"
   },
   {
     "id": "spot-4",
-    "location": {
-      "lat": 33.983354,
-      "lng": 130.980180
-    },
     "url": "https://www.buchiuma-y.net/chara/change_img/hanaccoli.gif",
     "name": "spot-4 イタリアン"
   }
