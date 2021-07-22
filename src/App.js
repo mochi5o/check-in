@@ -2,7 +2,7 @@ import './App.css';
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import GoogleMapComponent from './GoogleMapComponent';
-import Checkin from './Checkin'
+import CheckinComponent from './CheckinComponent'
 import { Container, Grid } from '@material-ui/core';
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
         <h1>特産物スタンプラリー</h1>
         <Switch>
           <Route exact path="/" component={GoogleMapComponent} />
-          <Route exact path="/check-in" component={Checkin} />
+          <Route exact path="/check-in" component={CheckinComponent} />
         </Switch>
       </Grid>
     </BrowserRouter>
