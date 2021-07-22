@@ -1,5 +1,6 @@
 import React, { useCallback, useRef, useState } from "react";
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api";
+import ListComponent from "./ListComponent";
 import Button from '@material-ui/core/Button';
 import mapStyles from "./mapUtils/mapStyles.json";
 import locationData from "./mapUtils/locations.json"
@@ -82,6 +83,7 @@ export default function GoogleMapComponent() {
       <Button variant="contained" color="default" size="large" href="check-in">
         チェックインする
       </Button>
+      <ListComponent />
     </>
   );
 }
