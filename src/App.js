@@ -16,7 +16,7 @@ function App() {
         justifyContent="center"
         alignItems="center"
       >
-        <h1>特産物スタンプラリー</h1>
+        <h1>やまぐちめぐり</h1>
         <Switch>
             <Route exact path="/" component={GoogleMapComponent} />
             <Route exact path="/check-in" component={CheckinComponent} />

@@ -1,7 +1,6 @@
 // ItemList.jsx
 import React, { useState, useEffect } from "react";
 import firebase from "../utils/firebase";
-import checkPointLists from '../utils/checkPointLists';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
@@ -19,6 +18,7 @@ const Lists = (props) => {
       .collection("checkin-history")
       .get();
     const completeArray = itemListArray.docs.map((x) => {
+      console.log(x.id);
       return {
         id: x.id,
         data: x.data(),
