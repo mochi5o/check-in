@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# やまぐちめぐり
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## やまぐちをぐるっと回って特産物を制覇するアプリ
 
-## Available Scripts
+url: [https://checkin-app-187398.web.app](https://checkin-app-187398.web.app)
 
-In the project directory, you can run:
+### 利用方法
 
-### `yarn start`
+- 利用者はアプリ上のマップにあるチェックポイントに行って、そこに置かれたQRコードをアプリ上から読み込んでチェックインする
+- チェックインしたらマップ下のリストがチェックイン済に更新される
+- 🙌すべてのチェックポイントを制覇しよう！！
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## プロダクトの背景
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 企画について
 
-### `yarn test`
+今回、あらためて山口県について調べたところ、特産品がめちゃくちゃたくさんあって、しかもキャラクターがいっぱいいることを知りました。
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+山口の自慢の色んな場所をめぐりながら特産品を知ることができたら楽しいかなと思いました。
 
-### `yarn build`
+構想時間：4h（実装方針の調査も含む）
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+実装時間：約10ｈ
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 今回チャレンジングだったこと
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+私はフロントの実装が嫌いです。あとJavaScriptは苦手です。firebaseは授業で触った程度の知識からアップデートされていません。
 
-### `yarn eject`
+今回は思いついた企画もMapものだったので、ReactをつかってJavaScriptオンリーでfirebaseをデータストアとして実装するという苦手づくしで実装しました。
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+一番大変だったのは自分の好きじゃない、もしくは苦手なものを使い続けるという苦行に耐えるモチベーションを保つことでした。
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+あとasyncとかReactのドキュメントとかこれまでも何回もググってるのに、何回ググっても覚えられなくてそれも大変苦痛でした。
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## ふりかえり
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- 肝心のチェックインの登録のところ、firebaseの非同期処理がうまくできずに該当データのIDをハードコーディングしています、すみません🙏
+- ビジネス的な観点でいうと、これは全然スケールしないですｗ
+- firebaseのデータのもたせ方を相当迷って時間を浪費したのでもう少し準備をしておけばよかったです（なめてました）
+- マップの使い方とかも完全に忘却の彼方だったので初日はマップ表示で数時間使ってしまいました
+- 自分がテストで設定したマップ中央の緯度経度とピンの緯度経度がずれすぎていてピンがでない…というところで悩んでいた
+  - 頭痛と睡魔と戦いながらやるからこういうことになります
+  - 緯度経度って1度ずれるとだいぶ遠いということ、しっかり覚えておきたいと思います
+- QRの読み込みなど実装の大部分はかんたんなツールが提供されているのでハッカソン向き
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![画像](./shimonoseki.png)
