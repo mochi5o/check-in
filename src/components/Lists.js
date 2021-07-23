@@ -1,7 +1,7 @@
 // ItemList.jsx
 import React, { useState, useEffect } from "react";
 import firebase from "../utils/firebase";
-import checkPointList from '../utils/checkPointLists'
+import checkPointLists from '../utils/checkPointLists';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
@@ -13,8 +13,6 @@ import CheckIcon from '@material-ui/icons/Check';
 
 const Lists = (props) => {
   const [completeList, setCompleteList] = useState(null);
-
-  // firestoreから全データを取得してstateに格納する関数
   const getListsFromFirestore = async () => {
     const itemListArray = await firebase
       .firestore()
@@ -30,7 +28,6 @@ const Lists = (props) => {
     return completeArray;
   };
 
-  // useEffectを利用してFirestoreからデータの一覧を取得．
   useEffect(() => {
     const result = getListsFromFirestore();
   }, [props]);
@@ -38,32 +35,26 @@ const Lists = (props) => {
   return (
     <div>
       <Grid item xs={12} md={12}>
-        {checkPointList.map((val, index) => (
-          <List key={index} id={val.id}>
-              <ListItem>
-                <ListItemAvatar>
-                  <Avatar alt="Cindy Baker" src={val.url} />
-                </ListItemAvatar>
-                <ListItemText
-                  primary={val.name}
-                />
+        {completeList?.map((val) => (
+          <List key={val.id}>
+            <ListItem>
+              <ListItemAvatar>
+                <Avatar alt="Cindy Baker" src={val.data.url} />
+              </ListItemAvatar>
+              <ListItemText
+                primary={val.data.name}
+              />
+              {val.data.isComplete &&
                 <ListItemAvatar>
                   <Avatar>
                     <CheckIcon />
                   </Avatar>
                 </ListItemAvatar>
-                </ListItem>
+              }
+              </ListItem>
             </List>
           ))}
         </Grid>
-      <ul>
-        {completeList?.map((x, index) => (
-          <li key={index} id={x.id}>
-            <input type="checkbox" value={x.id} />
-            <p>name{x.data.name}</p>
-          </li>
-        ))}
-      </ul>
     </div>
   );
 };
